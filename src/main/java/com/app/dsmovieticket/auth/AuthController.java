@@ -23,7 +23,6 @@ public class AuthController {
     //Sign In
     @PostMapping("/signin")
     public ResponseEntity<AuthRespondDto> login(@RequestBody AuthRequestDto authRequestDto) throws BadCredentialsException {
-
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(

@@ -29,7 +29,7 @@ public class JWTUtility implements Serializable {
         return getClaimFromToken(token, Claims::getSubject);
     }
 
-    //Retrieve expiration date from jwt token
+    //Retrieve Expiration Date from JWT Token
     public Date getExpirationDateFromToken(String token) {
         return getClaimFromToken(token, Claims::getExpiration);
     }
@@ -65,7 +65,6 @@ public class JWTUtility implements Serializable {
     //1.Define claims of the Token, like Issuer, Expiration, Subject, and the ID
     //2.Sign the JWT using the HS512 Algorithm and Secret Key.
     private String doGenerateToken(Map<String, Object> claims, String subject, Collection<? extends GrantedAuthority> authorities) {
-
         String role = authorities.stream().findFirst().get().getAuthority();
 
         return Jwts.builder()

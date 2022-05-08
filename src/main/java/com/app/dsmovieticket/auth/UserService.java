@@ -49,7 +49,7 @@ public class UserService implements UserDetailsService {
                                         .email(request.getEmail())
                                         .phone((request.getPhone()))
                                         .address(request.getAddress())
-                                        .role(Role.BUYER)
+                                        .role(Role.CUSTOMER)
                                         .build();
 
         return userRepository.save(saveToBe);

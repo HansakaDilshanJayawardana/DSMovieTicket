@@ -46,7 +46,7 @@ public class UserEntity implements UserDetails {
     private String address;
 
     @Column(name = "role")
-    private String role = Role.BUYER;
+    private String role = Role.CUSTOMER;
 
     @Override
     @JsonIgnore

@@ -8,7 +8,9 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class AuthRespondDto {
+
     private String jwtToken;
     private String userName;
     private String role;
+
 }

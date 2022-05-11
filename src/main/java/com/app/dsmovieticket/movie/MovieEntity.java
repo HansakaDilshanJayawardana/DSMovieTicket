@@ -26,7 +26,7 @@ public class MovieEntity extends BaseEntity {
     private String movieName;
 
     @Column(name = "show_time", nullable = false)
-    private LocalDateTime showTime;
+    private String showTime;
 
     @Column(name = "description", nullable = false)
     private String description;

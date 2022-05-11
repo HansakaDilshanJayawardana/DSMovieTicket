@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class MovieCreateRequest {
 
     private String movieName;
-    private LocalDateTime showTime;
+    private String showTime;
     private String description;
     private String casts;
     private String banner;

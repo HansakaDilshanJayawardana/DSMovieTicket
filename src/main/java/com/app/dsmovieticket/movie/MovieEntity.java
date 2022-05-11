@@ -1,5 +1,6 @@
 package com.app.dsmovieticket.movie;
 
+import com.app.dsmovieticket.utility.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MovieEntity {
+public class MovieEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +26,7 @@ public class MovieEntity {
     private String movieName;
 
     @Column(name = "show_time", nullable = false)
-    private LocalDateTime expDate;
+    private LocalDateTime showTime;
 
     @Column(name = "description", nullable = false)
     private String description;

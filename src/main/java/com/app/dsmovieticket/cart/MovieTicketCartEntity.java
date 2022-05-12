@@ -15,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CartMovieTicketEntity {
+public class MovieTicketCartEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

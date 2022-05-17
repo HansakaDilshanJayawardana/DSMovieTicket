@@ -24,7 +24,7 @@ public class MovieTicketCartEntity {
     @ManyToOne
     @JoinColumn(name = "ticket_cart_id")
     @JsonIgnore
-    private ShoppingTicketCartEntity ticketCartId;
+    private BookingTicketCartEntity ticketCartId;
 
     @ManyToOne
     @JoinColumn(name = "movie_id")

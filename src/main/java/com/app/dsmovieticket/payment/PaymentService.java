@@ -29,8 +29,6 @@ public class PaymentService {
     private final SMSKeyRepository smsKeyRepository;
     private final BookingTicketCartRepository bookingTicketCartRepository;
     private final CardValidationHandler cardValidationHandler;
-//    private final DeliveryHandler deliveryHandler;
-//    private final DeliveryRepository deliveryRepository;
 //    private final SmsHandler smsHandler;
     private final EmailController emailController;
 
@@ -55,7 +53,6 @@ public class PaymentService {
             bookingTicketCartService.updatePayment(paymentRequest.getCartId(), paymentRequest.getAmount(), paymentRequest.getPaymentType(), paymentRequest.getPhoneNumber());
 
             //TODO SMS Message
-            // TODO uncomment these
             emailController.sendMail(
                     userService.getUserEmailByName(username) ,
                     "DSMovieTicket - Confirmation",
@@ -79,7 +76,6 @@ public class PaymentService {
 
             bookingTicketCartService.updatePayment(paymentRequest.getCartId(), paymentRequest.getAmount(), paymentRequest.getPaymentType(), paymentRequest.getPhoneNumber());
 
-            // TODO uncomment these
             emailController.sendMail(
                     userService.getUserEmailByName(username) ,
                     "DSMovieTicket - Payment Alert",
@@ -103,7 +99,6 @@ public class PaymentService {
         PaymentInfoEntity paymentEntity = paymentRepository.findByCartId(cartId).orElseThrow(() -> new NotFoundException("Payment Entry not Found"));
         paymentEntity.setPaymentStatus(PaymentStatus.DONE);
 
-        // TODO uncomment these
         emailController.sendMail(
                 userService.getUserById(cart.getUserId()).getEmail() ,
                 "DSMovieTicket - Confirmation",

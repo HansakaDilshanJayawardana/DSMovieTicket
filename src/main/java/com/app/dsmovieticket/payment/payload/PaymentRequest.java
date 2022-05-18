@@ -27,6 +27,5 @@ public class PaymentRequest {
     //Theatre Options
     @NonNull
     private String theatreType;
-    private String theatreAddress;
 
 }

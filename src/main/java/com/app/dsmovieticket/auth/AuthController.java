@@ -12,6 +12,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1/auth")
@@ -20,7 +21,6 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final UserService userService;
 
-    //Sign In
     @PostMapping("/signin")
     public ResponseEntity<AuthRespondDto> login(@RequestBody AuthRequestDto authRequestDto) throws BadCredentialsException {
         try {
@@ -31,16 +31,13 @@ public class AuthController {
                     )
             );
         }catch (BadCredentialsException e){
-            //TODO add proper exception
             throw new BadCredentialsException("INVALID_USERNAME_OR_PASSWORD", e);
         }
         return new ResponseEntity<>(userService.loginUser(authRequestDto), HttpStatus.ACCEPTED);
     }
 
-    //Sign Up
     @PostMapping("/signup")
     public ResponseEntity<UserEntity> register(@RequestBody RegisterRequestDto request){
-        //Validations (Controller Level)
         if(request.getUserName().isEmpty()){
             throw new FieldValidationFailed("Username is Required");
         }
@@ -63,11 +60,6 @@ public class AuthController {
             throw new FieldValidationFailed("Address is Required");
         }
         return new ResponseEntity<>(userService.registerUser(request) , HttpStatus.CREATED);
-    }
-
-    @GetMapping("/test")
-    public String testAuth(){
-        return "Authentication is OK";
     }
 
 }

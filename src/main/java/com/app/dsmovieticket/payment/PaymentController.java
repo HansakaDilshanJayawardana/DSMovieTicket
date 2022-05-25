@@ -2,11 +2,9 @@ package com.app.dsmovieticket.payment;
 
 import com.app.dsmovieticket.payment.payload.MobileRequest;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/v1/payment")
